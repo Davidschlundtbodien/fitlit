@@ -6,13 +6,13 @@
   </head>
   <body>
     <main>
-      <section class="userDashboard">
+      <section class="user-dashboard">
         <header>
-          <h1>
+          <h1 class="logo">
             <img src="./images/turing-logo.png" alt="FitLit" height="100px" width="100px">
           </h1>
 
-          <div>
+          <div class="user-info">
             <h2>Hello, User!</h2>
             <h3>user@gmail.com   User:Street Name, 456789</h3> 
             <span>#</span>
@@ -23,7 +23,7 @@
           <div class="chart">
             <h3>User Sleep</h3>
             <div class="card">
-              <div id="sleep-chart"></div>
+            <canvas id="sleep-chart" width="400" height="400"></canvas>
               <img src="./images/moon.png" alt="Sleep Chart">
             </div>
           </div>
@@ -31,7 +31,7 @@
           <div class="chart">
             <h3>User Hydration</h3>
             <div class="card">
-              <div id="hydration-chart"></div>
+            <canvas id="hydration-chart" width="400" height="400"></canvas>
               <img src="./images/waterglass.png" alt="Hydration Chart">
             </div>
           </div>
@@ -39,7 +39,7 @@
           <div class="chart">
             <h3>User Steps</h3>
             <div class="card">
-              <div id="steps-chart"></div>
+            <canvas id="steps-chart" width="400" height="400"></canvas>
               <img src="./images/foot.png" alt="Steps Chart">
             </div>
           </div>

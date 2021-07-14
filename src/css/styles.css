@@ -1,5 +1,47 @@
-body, html {
-  background-image: linear-gradient(to top, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+html {
+  /* background-image: linear-gradient(to top, #ff9a9e 0%, #fecfef 99%, #fecfef 100%); */
+  background-image: linear-gradient(to top, #ebebeb96; %, #fecfef 99%, #fecfef 100%);
   background-repeat: no-repeat;
   height: 100%;
+}
+
+main {
+  /* display: flex; */
+  /* flex-direction: row; */
+}
+
+main section.user-dashboard {
+  /* display: flex; */
+  /* -ms-flex-align: center; */
+  border: 1px solid blue;
+  min-height: auto;
+
+}
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+header .logo {
+  border: 1px solid rgba(49, 49, 49, 0.979);
+  border-radius: 10px;
+}
+ header h2 {
+  /* margin: 30px 30px; */
+  text-align: center;
+  border: 1px solid rgba(231, 13, 13, 0.979);
+  border-radius: 10 px;
+
+}
+header h3 {
+  text-align: center;
+  font-size: smaller ;
+
+}
+.user-info {
+  margin: auto;
+  text-justify: center;
+  border: 1px solid black;
+  border-radius: 10px; 
 }
