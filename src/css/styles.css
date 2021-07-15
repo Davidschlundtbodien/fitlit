@@ -1,21 +1,27 @@
 html {
-  /* background-image: linear-gradient(to top, #ff9a9e 0%, #fecfef 99%, #fecfef 100%); */
   background-image: linear-gradient(to top, #ebebeb96; %, #fecfef 99%, #fecfef 100%);
   background-repeat: no-repeat;
+}
+
+html, 
+body {
+  margin: 0;
+  padding: 0;
   height: 100%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
 }
 
 main {
-  /* display: flex; */
-  /* flex-direction: row; */
+  display: flex;
+  flex-direction: row;
 }
 
 main section.user-dashboard {
-  /* display: flex; */
-  /* -ms-flex-align: center; */
-  border: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
   min-height: auto;
-
 }
 header {
   display: flex;
@@ -24,24 +30,114 @@ header {
 
 }
 header .logo {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  flex-grow: 0;
   border: 1px solid rgba(49, 49, 49, 0.979);
   border-radius: 10px;
 }
  header h2 {
-  /* margin: 30px 30px; */
   text-align: center;
-  border: 1px solid rgba(231, 13, 13, 0.979);
-  border-radius: 10 px;
-
+  font-size: 40px;
 }
 header h3 {
   text-align: center;
-  font-size: smaller ;
+  font-size: 12px ;
+  font-weight: normal;
 
 }
 .user-info {
-  margin: auto;
-  text-justify: center;
+  flex-grow: 1;
+  margin-left: 20px;
+  position: relative;
   border: 1px solid black;
   border-radius: 10px; 
+}
+.user-info span {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size:150px;
+}
+#allCharts {
+  display: flex;
+  justify-content: space-between;
+}
+
+#allCharts .chart {
+  margin: 10px;
+}
+
+#allCharts .chart h3 {
+  text-align: center;
+
+}
+
+#allCharts .chart .card {
+  background-color:#ebebeb;
+  box-shadow: 0px 30px 30px -20px rgb(0 0 0 / 50%);
+  
+}
+#allCharts .chart .card {
+  background-color:#ebebeb;
+  box-shadow: 0px 30px 30px -20px rgb(0 0 0 / 50%);
+  position: relative;
+  
+}
+
+#allCharts .chart .card img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 48%;
+  transform: translate(-50%, -50%);
+}
+
+.user-dashboard footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  box-shadow: 0 0 0 3px black;
+  margin: 20px 10px;
+  /* height: 70px; */
+}
+
+.friends {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-left: 10px;
+  /* padding-left: 10px; */
+  border-left: 1px solid gray;
+}
+.friends #friends-list {
+  height: 50%;
+  overflow: hidden;
+  border-bottom: 1px solid gray;
+ 
+}
+
+.friends #friends-list h2 {
+  font-size: 20px;
+  margin-left: 10px;
+
+}
+.friends #friends-list ul {
+  padding: 0;
+  list-style: none;
+  overflow: auto;
+  height: 80%;
+}
+
+.friends #friends-list ul li{
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 20px;
+
 }
