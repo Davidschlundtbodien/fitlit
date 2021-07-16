@@ -2,7 +2,9 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Fit Lit</title>
+    <link rel="stylesheet" href="https://unpkg.com/js-datepicker/dist/datepicker.min.css">
   </head>
   <body>
     <main>
@@ -15,7 +17,10 @@
           <div class="user-info">
             <h2>Hello, User!</h2>
             <h3>user@gmail.com   User:Street Name, 456789</h3> 
-            <span>#</span>
+            <span id="calendar">
+              <img src="./images/turing-logo.png" alt="#">
+              <input readonly id="calendar-input" type="text">
+            </span>
           </div>
         </header>
 
@@ -66,7 +71,11 @@
             <li><strong>friendThree</strong><span>34567</span></li>
           </ul>
         </section>
-        <canvas id="friends-avarage-chart"></canvas>
+        <section class='friends-chart'>
+          <h2>Friends Steps Chart</h2>
+          <canvas id="friends-avarage-chart"></canvas>
+          <h3>Avg Steps 1378day</h3>
+        </section>
       </section>
     </main>
     
