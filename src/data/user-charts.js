@@ -5,10 +5,8 @@ const sleepChart = document.getElementById('sleep-chart');
 const hydrationChart = document.getElementById('hydration-chart');
 const stepsChart = document.getElementById('steps-chart');
 const friendsChart = document.getElementById('friends-avarage-chart');
-
 // I think this one maybe let not const.
 const friendlabels = ['friend1', 'friend2', 'friend3','friend4','friend5'];
-
 
 console.log("blabvlabalba");
 
@@ -42,7 +40,6 @@ let mySleepChart = new Chart(sleepChart, {
     }
 });
 
-
 let myHydrationChart = new Chart(hydrationChart, {
     type: 'doughnut',
     data: {
@@ -74,7 +71,6 @@ let myHydrationChart = new Chart(hydrationChart, {
     }
 });
 
-
 let myStepsChart = new Chart(stepsChart, {
     type: 'doughnut',
     data: {
@@ -104,7 +100,6 @@ let myStepsChart = new Chart(stepsChart, {
         }
     }
 });
-
 
 let userFriendsChart = new Chart(friendsChart, {
     type: 'bar',
