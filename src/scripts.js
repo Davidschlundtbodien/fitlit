@@ -21,6 +21,8 @@ import datepicker from 'js-datepicker';
 import { myStepsChart, myHydrationChart, mySleepChart, userFriendsChart} from './data/user-charts';
 import Chart from 'chart.js/auto'; 
 import userData from './data/users';
+import main from './main'
+import User from './User'
 import UserRepository from './UserRepository';
 
 
