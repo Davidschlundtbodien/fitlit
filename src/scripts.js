@@ -6,12 +6,14 @@ import './css/styles.css';
 
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/Fitlit_logo.svg'
-import './images/calendar.svg'
-import './images/friends_icon.png'
-import './images/moon_phase.svg'
-import './images/cup.png'
-import './images/foot_icon.svg'
+import './images/Fitlit_logo.svg';
+import './images/calendar.svg';
+import './images/friends_icon.png';
+// import './images/moon_phase.svg';
+import './images/cup.png';
+import './images/foot_icon.svg';
+import './images/moon_weather.svg';
+
 
 console.log('This is the JavaScript entry file - your code begins here.');
 
