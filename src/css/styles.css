@@ -45,14 +45,14 @@ header {
 header .logo {
   display: flex;
   align-items: left;
-  margin: 0;
   flex-grow: 0;
+  margin: 0;
+  padding: 5px;
   border: 1px solid rgba(49, 49, 49, 0.979);
   border-radius: 10px;
   font-size: 14px;
-  color: #949483f0;
   text-shadow: #4c4d4f;
-  padding: 5px;
+  color: #949483f0;
 }
 
 @media only screen and (min-width:600px) {
@@ -64,55 +64,54 @@ header .logo {
 /* *************************** */
  header .user-info #helloUser {
   text-align: center;
+  margin-top: 45px;
+  padding-left: 8px;
   font-size: 18px;
   color: #674292e8;
-  padding-left: 8px;
-  margin-top: 45px;
 }
 
 @media only screen and (min-width: 600px) {
   header .user-info #helloUser {
-    font-size: 40px;
     padding-left: 0px;
-
+    font-size: 40px;
   }
 }
 /* ********************* */
 header h3 {
   text-align: center;
+  padding-left: 8px;
   font-size: 8px ;
   font-weight: normal;
   color:#4c4d4f;
-  padding-left: 8px;
 }
 
 @media only screen and (min-width: 600px) {
   header h3 {
-    font-size: 12px;
     padding:0;  
+    font-size: 12px;
   }
 }
 
 .user-info {
   flex-grow: 1;
   margin-left: 20px;
-  position: relative;
   border: 1px solid black;
   border-radius: 10px; 
+  position: relative;
   z-index: 2;
 }
 
 .user-info > span {
-  position: absolute;
   right: 20px;
   top: 50%;
+  position: absolute;
   transform: translateY(-50%);
 }
 
 .user-info >span #calendar-input {
   position: absolute;
-  top: 0;
   left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
   opacity: 0;
@@ -150,9 +149,9 @@ header h3 {
 }
 
 #allCharts .chart h3 {
-  color:#949483f0;
   text-align: center;
   text-shadow: grey;
+  color:#949483f0;
 }
 
 #allCharts .chart .card {

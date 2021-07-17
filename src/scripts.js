@@ -9,7 +9,6 @@ import './css/styles.css';
 import './images/Fitlit_logo.svg';
 import './images/calendar.svg';
 import './images/friends_icon.png';
-// import './images/moon_phase.svg';
 import './images/cup.png';
 import './images/foot_icon.svg';
 import './images/moon_weather.svg';
