@@ -14,9 +14,9 @@ let mySleepChart = new Chart(sleepChart, {
     type: 'doughnut',
     data: {
         labels: [
-            'Red',
-            'Blue',
-            'Yellow'
+            'My Sleep',
+            'Avg',
+            'My goal'
           ],
           datasets: [{
             label: 'My First Dataset',
@@ -34,7 +34,7 @@ let mySleepChart = new Chart(sleepChart, {
         radius: '65%',
         plugins: {
             legend: {
-                display: false,
+                display: true,
             }
         }
     }
@@ -44,9 +44,9 @@ let myHydrationChart = new Chart(hydrationChart, {
     type: 'doughnut',
     data: {
         labels: [
-            'Red',
-            'Blue',
-            'Yellow'
+            'My Hydration',
+            'Avg',
+            'Goal'
           ],
           datasets: [{
             label: 'My First Dataset',
@@ -65,7 +65,7 @@ let myHydrationChart = new Chart(hydrationChart, {
         radius: '65%',
         plugins: {
             legend: {
-                display: false,
+                display: true,
             }
         }
     }
@@ -75,9 +75,9 @@ let myStepsChart = new Chart(stepsChart, {
     type: 'doughnut',
     data: {
         labels: [
-            'Red',
-            'Blue',
-            'Yellow'
+            'My steps',
+            'Avg',
+            'My goal'
           ],
           datasets: [{
             label: 'My First Dataset',
@@ -95,7 +95,8 @@ let myStepsChart = new Chart(stepsChart, {
         radius: '65%',
         plugins: {
             legend: {
-                display: false,
+                display: true,
+                
             }
         }
     }
