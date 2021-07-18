@@ -107,7 +107,7 @@ header h3 {
   transform: translateY(-50%);
 }
 
-.user-info >span #calendar-input {
+.user-info > span #calendar-input {
   position: absolute;
   left: 0;
   top: 0;
@@ -117,7 +117,7 @@ header h3 {
   cursor: pointer;
 }
 /* *********** */
-.user-info >span img {
+.user-info > span img {
   height: 40px;
   margin-bottom: 65px;
   /* ? position top right ?? */
