@@ -8,8 +8,6 @@ const friendsChart = document.getElementById('friends-avarage-chart');
 // I think this one maybe let not const.
 const friendlabels = ['friend1', 'friend2', 'friend3','friend4','friend5'];
 
-console.log("blabvlabalba");
-
 let mySleepChart = new Chart(sleepChart, {
     type: 'doughnut',
     data: {
