@@ -2,12 +2,77 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Activity Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fit Lit</title>
+    <link rel="stylesheet" href="https://unpkg.com/js-datepicker/dist/datepicker.min.css">
   </head>
   <body>
-    <h1>Activity Tracker</h1>
-    <img src="./images/turing-logo.png" alt="turing logo" height="100px" width="100px">
-
+    <main>
+      <section class="user-dashboard">
+        <header>
+          <h1 class="logo">
+            <img src="./images/Fitlit_logo.svg" alt="FitLit" height="100px" width="100px"> 
+              Fitlit
+          </h1>
+          <div class="user-info">
+            <h2 id="helloUser">Hello, User!</h2>
+            <h3>user@gmail.com   User:Street Name, 456789</h3> 
+            <span id="calendar">
+              <img src="./images/calendar.svg" alt="#">
+              <input readonly id="calendar-input" type="text">
+            </span>
+          </div>
+        </header>
+        <section id="allCharts">
+          <div class="chart">
+            <h3>Sleep</h3>
+            <div class="card">
+              <canvas id="sleep-chart"></canvas>
+              <img src="./images/moon_weather.svg" alt="Sleep Chart">
+            </div>
+          </div>
+          <div class="chart">
+            <h3>Hydration</h3>
+            <div class="card">
+              <canvas id="hydration-chart"></canvas>
+              <img src="./images/cup.png" alt="Hydration Chart">
+            </div>
+          </div>
+          <div class="chart">
+            <h3>Steps</h3>
+            <div class="card">
+              <canvas id="steps-chart"></canvas>
+              <img src="./images/foot_icon.svg" alt="Steps Chart">
+            </div>
+          </div>
+        </section>
+        <footer>Your Ad goes Here</footer>
+      </section>
+      <section class="friends">
+        <section id="friends-list">
+          <h2>
+            <img src="./images/friends_icon.png" alt="Friends gif"> 
+            Friends
+          </h2>
+          <ul>
+            <li><strong>friendOne</strong><span>34567</span></li>
+            <li><strong>friendTwo</strong><span>34567</span></li>
+            <li><strong>friendThree</strong><span>34567</span></li>
+            <li><strong>friendOne</strong><span>34567</span></li>
+            <li><strong>friendTwo</strong><span>34567</span></li>
+            <li><strong>friendThree</strong><span>34567</span></li>
+            <li><strong>friendOne</strong><span>34567</span></li>
+            <li><strong>friendTwo</strong><span>34567</span></li>
+            <li><strong>friendThree</strong><span>34567</span></li>
+          </ul>
+        </section>
+        <section class='friends-chart'>
+          <h2>Friends Steps Chart</h2>
+          <canvas id="friends-avarage-chart"></canvas>
+          <h3>Avg Steps 1378 day</h3>
+        </section>
+      </section>
+    </main>
 <!-- Do not include the scripts.js file here - it is done automatically by the webpack server -->
     <script src="bundle.js"></script>
   </body>
