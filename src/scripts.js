@@ -25,7 +25,6 @@ import main from './main'
 import User from './User'
 import UserRepository from './UserRepository';
 
-
-const calendar = datepicker('#calendar-input');
+const calendar = datepicker('#calendar-input', { position: 'br'});
 // // const calendarIcon = document.querySelector('#calendar img');
 
