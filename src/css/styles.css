@@ -35,13 +35,13 @@ header {
   justify-content: space-between;
   margin: 10px;
 }
-/* ************ */
+
 @media only screen and (min-width:600px) {
   header {
     justify-content: space-between;
   }
 }
-/* ************ */
+
 header .logo {
   display: flex;
   align-items: left;
@@ -59,8 +59,6 @@ header .logo {
   align-items: center;
   }
 }
-
-/* *************************** */
 
 .user-info {
   display: flex;
@@ -141,8 +139,7 @@ header .logo {
   flex-direction: column;
 }
 
-@media only screen and (min-width:768px) {
-  
+@media only screen and (min-width:768px) {  
   #allCharts {
     justify-content: space-between;
     flex-direction: row;
@@ -180,8 +177,8 @@ header .logo {
   font-weight: 540;
   padding-bottom: 50px;
   color: #6d6e70;
-
 }
+
 #allCharts .chart .card button {
   position: absolute;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -212,6 +209,7 @@ header .logo {
   opacity: 0;
   z-index: -1;
 }
+
 #allCharts .chart .card .latest-week ul {
   margin: 0; 
   height: 100%;
@@ -230,8 +228,8 @@ header .logo {
   color: rgb(119, 119, 119);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
 #Avg {
-  /* width: 100%; */
   background-color: black;
 }
 
@@ -244,6 +242,7 @@ header .logo {
 
 #allCharts .chart .card .latest-week .progress-bar {
   width: 80%;
+  /* height: 80%; */
   background-color: #bababa;
   border-radius: 2px;  
 }
