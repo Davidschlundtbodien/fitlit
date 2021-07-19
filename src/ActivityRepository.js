@@ -56,6 +56,7 @@ class ActivityRepository {
 
   calculateMilesTraveled(date) {
     const stepsTaken = this.findUserActivityData(this.currentUser.id, date, 'numSteps')
+    //The 5280 is the number of feet for 1 mile
     const milesResult = (stepsTaken * this.currentUser.strideLength)/5280
     return Math.round(milesResult * 10)/10
   }
