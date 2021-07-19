@@ -5,24 +5,45 @@ const sleepChart = document.getElementById('sleep-chart');
 const hydrationChart = document.getElementById('hydration-chart');
 const stepsChart = document.getElementById('steps-chart');
 const friendsChart = document.getElementById('friends-avarage-chart');
+const weekBtn = document.querySelectorAll('.chart .card > button');
+const backBtn = document.querySelectorAll('.chart .card .latest-week button');
+console.log(backBtn);
+
 // I think this one maybe let not const.
+const showLastWeek = ((e) => {
+    e.target.nextElementSibling.classList.remove('hidden');
+});
+const hideLastWeek =((e) => {
+    e.target.parentElement.classList.add('hidden');
+});
+
+weekBtn.forEach(btn => {
+    btn.addEventListener('click', showLastWeek)      
+}); 
+
+backBtn.forEach(btn => {
+    btn.addEventListener('click', hideLastWeek)
+}); 
+
+
 const friendlabels = ['friend1', 'friend2', 'friend3','friend4','friend5'];
+
 
 let mySleepChart = new Chart(sleepChart, {
     type: 'doughnut',
     data: {
         labels: [
-            'My Sleep',
-            'Avg',
-            'My goal'
+            'Sleep hours',
+            'Goal',
+                
           ],
           datasets: [{
             label: 'My First Dataset',
-            data: [300, 50, 100],
+            data: [7, 1],
             backgroundColor: [
-              '#300264f5',
-              '#77777777',
-              '#0fa2b6f2'
+             '#0fa2b6f2',
+              '#73519b',
+            
             ],
             hoverOffset: 4
           }]
@@ -42,18 +63,16 @@ let myHydrationChart = new Chart(hydrationChart, {
     type: 'doughnut',
     data: {
         labels: [
-            'My Hydration',
-            'Avg',
-            'Goal'
+            'Consumed oz',
+            'Daily need',
           ],
           datasets: [{
             label: 'My First Dataset',
-            data: [300, 50, 100],
+            data: [100, 300],
             backgroundColor: [
-              '#300264f5',
-              '#77777777',
               '#f3871ede',
-              '#0fa2b6f2'
+              '#73519b',
+              
             ],
             hoverOffset: 4
           }]
@@ -73,17 +92,15 @@ let myStepsChart = new Chart(stepsChart, {
     type: 'doughnut',
     data: {
         labels: [
-            'My steps',
-            'Avg',
-            'My goal'
+            'Steps today',
+            'Goal',
           ],
           datasets: [{
             label: 'My First Dataset',
-            data: [300, 50, 100],
+            data: [100, 300],
             backgroundColor: [
-              '#300264f5',
-              '#77777777',
-              '#0fa2b6f2'
+              '#0fa2b6f2',
+              '#73519b',
             ],
             hoverOffset: 4
           }]
