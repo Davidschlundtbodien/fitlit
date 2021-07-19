@@ -20,7 +20,7 @@ describe('ActivityRepository', () => {
         {"userID": 2, "date": '2019/06/16', "numSteps": 9842, "minutesActive": 50, 'flightsOfStairs': 31},
         {"userID": 2, "date": '2019/06/17', "numSteps": 5023, "minutesActive": 40, 'flightsOfStairs': 41}
       ]
-      const userData = [{
+      userData = [{
         "id": 1,
         "name": "Luisa Hane",
         "address": "15195 Nakia Tunnel, Erdmanport VA 19901-1697",
