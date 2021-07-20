@@ -4,8 +4,10 @@ import SleepRepository from './SleepRepository'
 import ActivityRepository from './ActivityRepository'
 import {mySleepChart, myHydrationChart, myStepsChart, userFriendsChart} from './data/user-charts'
 
-export let userRepo, hydrationRepo, sleepRepo, activityRepo
+//Repostories
+let userRepo, hydrationRepo, sleepRepo, activityRepo
 
+//DATA Fetching
 let fetchData = (dataType) => {
   return fetch(`http://localhost:3001/api/v1/${dataType}`)
     .then(res => {
@@ -26,18 +28,10 @@ let updateData = (data) => {
   //Selects a random user
   let randomUserID = Math.floor(Math.random() * 50 + 1)
   activityRepo.updateCurrentUser(randomUserID, userRepo)
-  updateUserCard()
-  updateHydrationCard()
-  updateSleepCard()
-  updateActivityCard()
-  updateFriendsList()
-  updateWeekSleep()
-  updateWeekHydration()
+  updateDOM()
 }
-//Sanity Check for response
-setTimeout(function(){ console.log(userRepo, hydrationRepo, sleepRepo, activityRepo); }, 2000);
 
-
+//SELECTORS
 const userGreeting = document.getElementById('helloUser')
 const userInfo = document.getElementById('userInfo')
 const userStepsAvg = document.getElementById('userStepsAvg')
@@ -48,16 +42,29 @@ const sleepWeekList = document.getElementById('sleepWeekList')
 const hydrationWeekList = document.getElementById('hydrationWeekList')
 const activityWeekList = document.getElementById('activityWeekList')
 
-const updateUserCard = () => {
+//DATA Rendering for DOM
+const updateDOM = () => {
   let user = activityRepo.currentUser
+  let date = '2020/01/22'
+  updateUserCard(user)
+  updateFriendsList(user)
+  updateHydrationCard(user, date)
+  updateSleepCard(user, date)
+  updateActivityCard(user, date)
+  updateWeekSleep(user, date)
+  updateWeekHydration(user, date)
+}
+
+//USER INFO
+const updateUserCard = (user) => {
   userGreeting.innerText = `Hello, ${user.firstName()}!`
   userInfo.innerText = `📥 ${user.email}   🏡${user.address}`
 }
 
-const updateFriendsList = () => {
-  let user = activityRepo.currentUser
+//FRIENDS LIST and CHART
+const updateFriendsList = (user) => {
   friendsList.innerHTML = "";
-  let userFriends =  user.friends.map(friend => userRepo.findUserByID(friend))
+  let userFriends = user.friends.map(friend => userRepo.findUserByID(friend))
   userFriends.forEach(friend => {
     friendsList.innerHTML += `<li><strong>${friend.firstName()}</strong><span>Daily Step Goal: ${friend.dailyStepGoal}</span></li>`
   });
@@ -71,24 +78,22 @@ const updateFriendsChart = (friends) => {
   userFriendsChart.update()
 }
 
-const updateHydrationCard = () => {
-  let user = activityRepo.currentUser
-  let ouncesForWeek = hydrationRepo.getWeekOunces(user.id, '2020/01/22')
+//TODAY CARDS
+const updateHydrationCard = (user, date) => {
+  let ouncesForWeek = hydrationRepo.getWeekOunces(user.id, date)
   updateDonutChart(myHydrationChart, ouncesForWeek[0], 110)
   userHydrationAvg.innerText = `Avg Consumed Daily: ${hydrationRepo.getTotalAvg(user.id)} oz`
 }
 
-const updateSleepCard = () => {
-  let user = activityRepo.currentUser
-  let sleepForWeek = sleepRepo.getDataByWeek(user.id, '2020/01/22', 'hoursSlept')
-  let sleepQualityForWeek = sleepRepo.getDataByWeek(user.id, '2020/01/22', 'sleepQuality')
+const updateSleepCard = (user, date) => {
+  let sleepForWeek = sleepRepo.getDataByWeek(user.id, date, 'hoursSlept')
+  let sleepQualityForWeek = sleepRepo.getDataByWeek(user.id, date, 'sleepQuality')
   updateDonutChart(mySleepChart, sleepForWeek[0], 8)
   userQualityAvg.innerText = `Avg Sleep Quality: ${sleepRepo.getUserAvg(user.id, 'sleepQuality')}`
 }
 
-const updateActivityCard = () => {
-  let user = activityRepo.currentUser
-  let stepsForToday = activityRepo.findUserActivityData(user.id, '2020/01/22', 'numSteps')
+const updateActivityCard = (user, date) => {
+  let stepsForToday = activityRepo.findUserActivityData(user.id, date, 'numSteps')
   updateDonutChart(myStepsChart, stepsForToday, user.dailyStepGoal)
   userStepsAvg.innerText = `Avg Daily Steps: ${activityRepo.getUserAvg(user.id, 'numSteps')}`
 }
@@ -99,10 +104,10 @@ const updateDonutChart = (chart, value, total) => {
   chart.update()
 }
 
-const updateWeekSleep = () => {
-  let user = activityRepo.currentUser
-  let sleepEntries = sleepRepo.getDataByWeek(user.id, '2020/01/22', 'hoursSlept')
-  let qualityEntries = sleepRepo.getDataByWeek(user.id, '2020/01/22', 'sleepQuality')
+//WEEK CARDS
+const updateWeekSleep = (user, date) => {
+  let sleepEntries = sleepRepo.getDataByWeek(user.id, date, 'hoursSlept')
+  let qualityEntries = sleepRepo.getDataByWeek(user.id, date, 'sleepQuality')
   sleepWeekList.innerHTML = '';
   sleepEntries.forEach((entry, i) => {
     sleepWeekList.innerHTML += `
@@ -118,9 +123,8 @@ const updateWeekSleep = () => {
   });
 }
 
-const updateWeekHydration = () => {
-  let user = activityRepo.currentUser
-  let hydrationEntries = hydrationRepo.getWeekOunces(user.id, '2020/01/22')
+const updateWeekHydration = (user, date) => {
+  let hydrationEntries = hydrationRepo.getWeekOunces(user.id, date)
   hydrationWeekList.innerHTML = '';
   hydrationEntries.forEach((entry, i) => {
     hydrationWeekList.innerHTML += `
