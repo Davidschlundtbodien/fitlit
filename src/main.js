@@ -31,6 +31,8 @@ let updateData = (data) => {
   updateSleepCard()
   updateActivityCard()
   updateFriendsList()
+  updateWeekSleep()
+  updateWeekHydration()
 }
 //Sanity Check for response
 setTimeout(function(){ console.log(userRepo, hydrationRepo, sleepRepo, activityRepo); }, 2000);
@@ -42,6 +44,9 @@ const userStepsAvg = document.getElementById('userStepsAvg')
 const userQualityAvg = document.getElementById('userQualityAvg')
 const friendsList = document.getElementById('friendsList')
 const avgStepGoal = document.getElementById('avgStepGoal')
+const sleepWeekList = document.getElementById('sleepWeekList')
+const hydrationWeekList = document.getElementById('hydrationWeekList')
+const activityWeekList = document.getElementById('activityWeekList')
 
 const updateUserCard = () => {
   let user = activityRepo.currentUser
@@ -83,7 +88,7 @@ const updateSleepCard = () => {
 
 const updateActivityCard = () => {
   let user = activityRepo.currentUser
-  let stepsForToday = activityRepo.findUserActivityData(user.id, '2020/01/22', "numSteps")
+  let stepsForToday = activityRepo.findUserActivityData(user.id, '2020/01/22', 'numSteps')
   updateDonutChart(myStepsChart, stepsForToday, user.dailyStepGoal)
   userStepsAvg.innerText = `Avg Daily Steps: ${activityRepo.getUserAvg(user.id, 'numSteps')}`
 }
@@ -92,4 +97,42 @@ const updateDonutChart = (chart, value, total) => {
   chart.data.datasets[0].data[0] = value
   chart.data.datasets[0].data[1] = total - value
   chart.update()
+}
+
+const updateWeekSleep = () => {
+  let user = activityRepo.currentUser
+  let sleepEntries = sleepRepo.getDataByWeek(user.id, '2020/01/22', 'hoursSlept')
+  let qualityEntries = sleepRepo.getDataByWeek(user.id, '2020/01/22', 'sleepQuality')
+  sleepWeekList.innerHTML = '';
+  sleepEntries.forEach((entry, i) => {
+    sleepWeekList.innerHTML += `
+      <li class="item">
+        <div class="label">Day ${i + 1}</div>
+        <div class="progress-bar">
+          <div class="progress" style="width: 75%;" ></div>
+        </div>
+        <div class="value">${entry}hrs</div>
+        <div class="label">Quality: ${qualityEntries[i]}</div>
+      </li>
+    `
+  });
+}
+
+const updateWeekHydration = () => {
+  let user = activityRepo.currentUser
+  let hydrationEntries = hydrationRepo.getWeekOunces(user.id, '2020/01/22')
+  hydrationWeekList.innerHTML = '';
+  hydrationEntries.forEach((entry, i) => {
+    hydrationWeekList.innerHTML += `
+      <li class="item">
+        <div class="label">Day ${i + 1}</div>
+        <div class="progress-bar">
+          <div class="progress" style="width: 75%;" ></div>
+        </div>
+        <div class="value">${entry}</div>
+        <div class="label">Ouces per day</div>
+      </li>
+    `
+  });
+
 }
