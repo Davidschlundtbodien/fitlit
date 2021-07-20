@@ -16,10 +16,11 @@ main {
   flex-direction: column;
 }
 
-@media only screen and (min-width:768px) {
+@media only screen and (min-width:769px) {
   main {
     flex-direction: row;
     height: 100vh;
+    width: 100vw;
   }
 }
 
@@ -27,6 +28,7 @@ main section.user-dashboard {
   display: flex;
   flex-direction: column;
   min-height: auto;
+
 }
 
 header {
@@ -36,7 +38,11 @@ header {
   margin: 10px;
 }
 
-@media only screen and (min-width:600px) {
+@media only screen and (min-width:769px) {
+  main section.user-dashboard {
+    width: 70%;
+  }
+
   header {
     justify-content: space-between;
   }
@@ -54,7 +60,7 @@ header .logo {
   color: #949483f0;
 }
 
-@media only screen and (min-width:600px) {
+@media only screen and (min-width:769px) {
   header .logo {
   align-items: center;
   }
@@ -95,7 +101,7 @@ header .logo {
   order: -1;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 769px) {
   .user-info {
     justify-content: center;
   }
@@ -139,12 +145,7 @@ header .logo {
   flex-direction: column;
 }
 
-@media only screen and (min-width:768px) {  
-  #allCharts {
-    justify-content: space-between;
-    flex-direction: row;
-  }
-}
+
 
 #allCharts .chart {
   margin: 10px;
@@ -162,6 +163,8 @@ header .logo {
   box-shadow: 0px 30px 30px -20px rgb(0 0 0 / 50%);
   border-radius: 10px;
 }
+
+
 
 #allCharts .chart .card img {
   position: absolute;
@@ -271,18 +274,42 @@ header .logo {
   background-color: #1da6b9ed;
 }
 
+@media only screen and (min-width:769px) {  
+  #allCharts {
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  #allCharts .chart .card .chart-container {
+    position: relative;
+    width: 20vw;
+  }
+}
+
 .user-dashboard footer {
   display: none;
 }
 
-@media only screen and (min-width: 600px) {
+
+@media only screen and (min-width: 769px) {
   .user-dashboard footer {
+    position:relative;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-grow: 1;
     box-shadow: 0 0 0 3px black;
     margin: 20px 10px;
+    overflow: hidden;
+  }
+
+  .user-dashboard footer img {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+
+
   }
 }
 
@@ -294,7 +321,7 @@ header .logo {
   margin-left: 10px;
 }
 
-@media only screen and (min-width:600px) {
+@media only screen and (min-width:769px) {
   .friends {
     border-left: 1px solid gray;
   }
@@ -307,7 +334,7 @@ header .logo {
   border-bottom: 1px solid rgb(133, 132, 132);
 }
 
-@media only screen and (min-width:600px) {
+@media only screen and (min-width:769px) {
   .friends #friends-list {
     margin:0px;
   }
