@@ -50,7 +50,7 @@ const updateHydrationCard = () => {
   let user = activityRepo.currentUser
   let ouncesForWeek = hydrationRepo.getWeekOunces(user.id, '2020/01/22')
   updateDonutChart(myHydrationChart, ouncesForWeek[0], 110)
-  userHydrationAvg.innerText = `Avg Consumed Daily: ${hydrationRepo.getTotalAvg(user.id)}`
+  userHydrationAvg.innerText = `Avg Consumed Daily: ${hydrationRepo.getTotalAvg(user.id)} oz`
 }
 
 const updateSleepCard = () => {
