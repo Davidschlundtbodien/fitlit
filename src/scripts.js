@@ -12,6 +12,7 @@ import './images/friends_icon.png';
 import './images/cup.png';
 import './images/foot_icon.svg';
 import './images/moon_weather.svg';
+import "./images/Ads.jpg";
 
 
 // An example of how you tell webpack to use a JS file
