@@ -30,6 +30,7 @@ let updateData = (data) => {
   updateHydrationCard()
   updateSleepCard()
   updateActivityCard()
+  updateFriendsList()
 }
 //Sanity Check for response
 setTimeout(function(){ console.log(userRepo, hydrationRepo, sleepRepo, activityRepo); }, 2000);
@@ -39,11 +40,22 @@ const userGreeting = document.getElementById('helloUser')
 const userInfo = document.getElementById('userInfo')
 const userStepsAvg = document.getElementById('userStepsAvg')
 const userQualityAvg = document.getElementById('userQualityAvg')
+const friendsList = document.getElementById('friendsList')
 
 const updateUserCard = () => {
   let user = activityRepo.currentUser
   userGreeting.innerText = `Hello, ${user.firstName()}!`
   userInfo.innerText = `📥 ${user.email}   🏡${user.address}`
+}
+
+const updateFriendsList = () => {
+  let user = activityRepo.currentUser
+  friendsList.innerHTML = "";
+  let userFriends =  user.friends.map(friend => userRepo.findUserByID(friend))
+  userFriends.forEach(friend => {
+    friendsList.innerHTML += `<li><strong>${friend.firstName()}</strong><span>Daily Step Goal: ${friend.dailyStepGoal}</span></li>`
+  });
+
 }
 
 const updateHydrationCard = () => {
