@@ -7,7 +7,6 @@ const stepsChart = document.getElementById('steps-chart');
 const friendsChart = document.getElementById('friends-avarage-chart');
 const weekBtn = document.querySelectorAll('.chart .card > button');
 const backBtn = document.querySelectorAll('.chart .card .latest-week button');
-console.log(backBtn);
 
 // I think this one maybe let not const.
 const showLastWeek = ((e) => {
