@@ -11,9 +11,10 @@ class HydrationRepository {
 
   getTotalAvg(userID) {
     const userHydration = this.filterByUser(userID)
-    return userHydration.reduce((currentTotal, hydration) => {
+    const average = userHydration.reduce((currentTotal, hydration) => {
       return hydration.numOunces + currentTotal
     }, 0) / userHydration.length
+    return Math.round(average)
   }
 
   findOuncesOfDate(userID, date) {

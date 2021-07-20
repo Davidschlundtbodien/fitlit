@@ -14,17 +14,20 @@ import './images/foot_icon.svg';
 import './images/moon_weather.svg';
 
 
-console.log('This is the JavaScript entry file - your code begins here.');
-
 // An example of how you tell webpack to use a JS file
 import datepicker from 'js-datepicker';
 import { myStepsChart, myHydrationChart, mySleepChart, userFriendsChart} from './data/user-charts';
-import Chart from 'chart.js/auto'; 
+import Chart from 'chart.js/auto';
 import userData from './data/users';
 import main from './main'
 import User from './User'
 import UserRepository from './UserRepository';
+import Hydration from './Hydration'
+import HydrationRepository from './HydrationRepository';
+import Sleep from './Sleep'
+import SleepRepository from './SleepRepository';
+import Activity from './Activity'
+import ActivityRepository from './ActivityRepository';
 
 const calendar = datepicker('#calendar-input', { position: 'br'});
 // // const calendarIcon = document.querySelector('#calendar img');
-
