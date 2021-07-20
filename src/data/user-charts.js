@@ -106,6 +106,7 @@ let myStepsChart = new Chart(stepsChart, {
           }]
     },
     options: {
+        reponsive: true,
         cutout: '75%',
         radius: '65%',
         plugins: {
