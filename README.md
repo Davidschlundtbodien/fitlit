@@ -1,3 +1,4 @@
+
 # FitLit
 
 #### Summary
@@ -29,4 +30,9 @@ A dashboard type app to display fitness data pulled from a mock API with a rando
 - Webpack
 - Charts.js
 
-## Check out some snapshots!
+## Check it out!
+
+![recording Fitlit 9mg](https://user-images.githubusercontent.com/82066350/126408253-05bc6f75-b8ca-4832-b956-15aff3288413.gif)
+
+### IphoneX
+![recording fitlitiphoneX](https://user-images.githubusercontent.com/82066350/126408664-a86bd725-5246-4823-abbe-a01607c73cbb.gif)
