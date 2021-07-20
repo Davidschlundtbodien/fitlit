@@ -22,6 +22,9 @@ let updateData = (data) => {
   hydrationRepo = new HydrationRepository(data[1].hydrationData)
   sleepRepo = new SleepRepository(data[2].sleepData)
   activityRepo = new ActivityRepository(data[3].activityData)
+  //Selects a random user
+  let randomUserID = Math.floor(Math.random() * 50 + 1)
+  activityRepo.updateCurrentUser(randomUserID, userRepo)
 }
 //Sanity Check for response
 setTimeout(function(){ console.log(userRepo, hydrationRepo, sleepRepo, activityRepo); }, 2000);
