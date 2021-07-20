@@ -41,6 +41,7 @@ const userInfo = document.getElementById('userInfo')
 const userStepsAvg = document.getElementById('userStepsAvg')
 const userQualityAvg = document.getElementById('userQualityAvg')
 const friendsList = document.getElementById('friendsList')
+const avgStepGoal = document.getElementById('avgStepGoal')
 
 const updateUserCard = () => {
   let user = activityRepo.currentUser
@@ -55,7 +56,14 @@ const updateFriendsList = () => {
   userFriends.forEach(friend => {
     friendsList.innerHTML += `<li><strong>${friend.firstName()}</strong><span>Daily Step Goal: ${friend.dailyStepGoal}</span></li>`
   });
+  updateFriendsChart(userFriends)
+  avgStepGoal.innerText = `Avg Daily Step Goal: ${userRepo.getStepGoalAvg()}`
+}
 
+const updateFriendsChart = (friends) => {
+  userFriendsChart.data.labels = friends.map(friend => friend.firstName())
+  userFriendsChart.data.datasets[0].data = friends.map(friend => activityRepo.findUserActivityData(friend.id, '2020/01/22', 'numSteps'))
+  userFriendsChart.update()
 }
 
 const updateHydrationCard = () => {
