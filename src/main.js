@@ -25,6 +25,17 @@ let updateData = (data) => {
   //Selects a random user
   let randomUserID = Math.floor(Math.random() * 50 + 1)
   activityRepo.updateCurrentUser(randomUserID, userRepo)
+  updateUserCard()
 }
 //Sanity Check for response
 setTimeout(function(){ console.log(userRepo, hydrationRepo, sleepRepo, activityRepo); }, 2000);
+
+
+const userGreeting = document.getElementById('helloUser')
+const userInfo = document.getElementById('userInfo')
+
+const updateUserCard = () => {
+  let user = activityRepo.currentUser
+  userGreeting.innerText = `Hello, ${user.firstName()}!`
+  userInfo.innerText = `📥 ${user.email}   🏡${user.address}`
+}
