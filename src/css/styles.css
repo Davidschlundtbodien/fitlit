@@ -53,10 +53,10 @@ header .logo {
   align-items: left;
   flex-grow: 0;
   margin: 0;
+  font-size: 14px;
   padding: 5px;
   border: 1px solid rgba(49, 49, 49, 0.979);
   border-radius: 10px;
-  font-size: 14px;
   color: #949483f0;
 }
 
@@ -70,10 +70,10 @@ header .logo {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  position: relative;
   margin-left: 20px;
   border: 1px solid black;
   border-radius: 10px;
-  position: relative;
   z-index: 2;
 }
 
@@ -145,8 +145,6 @@ header .logo {
   flex-direction: column;
 }
 
-
-
 #allCharts .chart {
   margin: 10px;
 }
@@ -159,12 +157,10 @@ header .logo {
 
 #allCharts .chart .card {
   position: relative;
-  background-color:#f4f4f4f7;
   box-shadow: 0px 30px 30px -20px rgb(0 0 0 / 50%);
   border-radius: 10px;
+  background-color:#f4f4f4f7;
 }
-
-
 
 #allCharts .chart .card img {
   position: absolute;
@@ -176,23 +172,23 @@ header .logo {
 
 #allCharts .chart .card p {
   text-align: center;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 540;
   padding-bottom: 50px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #6d6e70;
 }
 
 #allCharts .chart .card button {
   position: absolute;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: 540;
   border-radius: 10px;
   bottom: 10px;
   right: 10px;
   cursor: pointer;
+  z-index: 1;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 540;
   color: #f9f9f9;
   background-color: #73519bc9;
-  z-index: 1;
 }
 
 #allCharts .chart .card .latest-week {
@@ -201,11 +197,11 @@ header .logo {
   left: 0;
   width: calc(100% - 20px);
   height: calc(100% - 50px); 
-  background-color: #f4f4f4ff;
   border-radius: 10px;
   padding: 10px 10px 40px;
   z-index: 1;
   transition: all 500ms ease-in-out;
+  background-color: #f4f4f4ff;
 }
 
 #allCharts .chart .card .latest-week.hidden {
@@ -228,8 +224,8 @@ header .logo {
 
 #allCharts .chart .card .latest-week .item .label {
   width: 100%;
-  color: rgb(119, 119, 119);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(119, 119, 119);
 }
 
 #Avg {
@@ -239,21 +235,20 @@ header .logo {
 #allCharts .chart .card .latest-week .item .value {
   flex-grow: 1;
   text-align: right;
-  color: rgb(119, 119, 119);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(119, 119, 119);
 }
 
 #allCharts .chart .card .latest-week .progress-bar {
   width: 80%;
-  /* height: 80%; */
-  background-color: #bababa;
   border-radius: 2px;  
+  background-color: #bababa;
 }
 
 #allCharts .chart .card .latest-week .progress-bar .progress {
   height: 100%;
-  background-color: #f39540;
   border-radius: 2px;  
+  background-color: #f39540;
 }
 
 #allCharts .chart .card .latest-week .item#avg .label, 
@@ -288,7 +283,6 @@ header .logo {
 .user-dashboard footer {
   display: none;
 }
-
 
 @media only screen and (min-width: 769px) {
   .user-dashboard footer {
@@ -348,7 +342,6 @@ header .logo {
 
 .friends #friends-list ul {
   padding: 0;
-  /* list-style: none; */
   overflow: auto;
   height: 80%;
 }
