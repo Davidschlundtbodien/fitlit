@@ -1,4 +1,7 @@
 import UserRepository from './UserRepository'
+import HydrationRepository from './HydrationRepository'
+import SleepRepository from './SleepRepository'
+import ActivityRepository from './ActivityRepository'
 
 let userRepo, hydrationRepo, sleepRepo, activityRepo
 
@@ -16,9 +19,9 @@ Promise.all([fetchData('users'), fetchData('hydration'), fetchData('sleep'), fet
 
 let updateData = (data) => {
   userRepo = new UserRepository(data[0].userData)
-  hydrationRepo = data[1].hydrationData
-  sleepRepo = data[2].sleepData
-  activityRepo = data[3].activityData
+  hydrationRepo = new HydrationRepository(data[1].hydrationData)
+  sleepRepo = new SleepRepository(data[2].sleepData)
+  activityRepo = new ActivityRepository(data[3].activityData)
 }
-
+//Sanity Check for response
 setTimeout(function(){ console.log(userRepo, hydrationRepo, sleepRepo, activityRepo); }, 2000);
