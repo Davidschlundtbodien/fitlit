@@ -1,5 +1,5 @@
 
-import Chart from 'chart.js/auto'; 
+import Chart from 'chart.js/auto';
 
 const sleepChart = document.getElementById('sleep-chart');
 const hydrationChart = document.getElementById('hydration-chart');
@@ -18,15 +18,15 @@ const hideLastWeek =((e) => {
 });
 
 weekBtn.forEach(btn => {
-    btn.addEventListener('click', showLastWeek)      
-}); 
+    btn.addEventListener('click', showLastWeek)
+});
 
 backBtn.forEach(btn => {
     btn.addEventListener('click', hideLastWeek)
-}); 
+});
 
 
-const friendlabels = ['friend1', 'friend2', 'friend3','friend4','friend5'];
+let friendlabels = ['friend1', 'friend2', 'friend3','friend4','friend5'];
 
 
 let mySleepChart = new Chart(sleepChart, {
@@ -35,7 +35,7 @@ let mySleepChart = new Chart(sleepChart, {
         labels: [
             'Sleep hours',
             'Goal',
-                
+
           ],
           datasets: [{
             label: 'My First Dataset',
@@ -43,7 +43,7 @@ let mySleepChart = new Chart(sleepChart, {
             backgroundColor: [
              '#0fa2b6f2',
               '#73519b',
-            
+
             ],
             hoverOffset: 4
           }]
@@ -72,7 +72,7 @@ let myHydrationChart = new Chart(hydrationChart, {
             backgroundColor: [
               '#f3871ede',
               '#73519b',
-              
+
             ],
             hoverOffset: 4
           }]
@@ -111,7 +111,7 @@ let myStepsChart = new Chart(stepsChart, {
         plugins: {
             legend: {
                 display: true,
-                
+
             }
         }
     }

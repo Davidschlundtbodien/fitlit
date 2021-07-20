@@ -2,8 +2,9 @@ import UserRepository from './UserRepository'
 import HydrationRepository from './HydrationRepository'
 import SleepRepository from './SleepRepository'
 import ActivityRepository from './ActivityRepository'
+import {mySleepChart, myHydrationChart, myStepsChart, userFriendsChart} from './data/user-charts'
 
-let userRepo, hydrationRepo, sleepRepo, activityRepo
+export let userRepo, hydrationRepo, sleepRepo, activityRepo
 
 let fetchData = (dataType) => {
   return fetch(`http://localhost:3001/api/v1/${dataType}`)
@@ -26,6 +27,9 @@ let updateData = (data) => {
   let randomUserID = Math.floor(Math.random() * 50 + 1)
   activityRepo.updateCurrentUser(randomUserID, userRepo)
   updateUserCard()
+  updateHydrationCard()
+  updateSleepCard()
+  updateActivityCard()
 }
 //Sanity Check for response
 setTimeout(function(){ console.log(userRepo, hydrationRepo, sleepRepo, activityRepo); }, 2000);
@@ -33,9 +37,39 @@ setTimeout(function(){ console.log(userRepo, hydrationRepo, sleepRepo, activityR
 
 const userGreeting = document.getElementById('helloUser')
 const userInfo = document.getElementById('userInfo')
+const userStepsAvg = document.getElementById('userStepsAvg')
+const userQualityAvg = document.getElementById('userQualityAvg')
 
 const updateUserCard = () => {
   let user = activityRepo.currentUser
   userGreeting.innerText = `Hello, ${user.firstName()}!`
   userInfo.innerText = `📥 ${user.email}   🏡${user.address}`
+}
+
+const updateHydrationCard = () => {
+  let user = activityRepo.currentUser
+  let ouncesForWeek = hydrationRepo.getWeekOunces(user.id, '2020/01/22')
+  updateDonutChart(myHydrationChart, ouncesForWeek[0], 110)
+  userHydrationAvg.innerText = `Avg Consumed Daily: ${hydrationRepo.getTotalAvg(user.id)}`
+}
+
+const updateSleepCard = () => {
+  let user = activityRepo.currentUser
+  let sleepForWeek = sleepRepo.getDataByWeek(user.id, '2020/01/22', 'hoursSlept')
+  let sleepQualityForWeek = sleepRepo.getDataByWeek(user.id, '2020/01/22', 'sleepQuality')
+  updateDonutChart(mySleepChart, sleepForWeek[0], 8)
+  userQualityAvg.innerText = `Avg Sleep Quality: ${sleepRepo.getUserAvg(user.id, 'sleepQuality')}`
+}
+
+const updateActivityCard = () => {
+  let user = activityRepo.currentUser
+  let stepsForToday = activityRepo.findUserActivityData(user.id, '2020/01/22', "numSteps")
+  updateDonutChart(myStepsChart, stepsForToday, user.dailyStepGoal)
+  userStepsAvg.innerText = `Avg Daily Steps: ${activityRepo.getUserAvg(user.id, 'numSteps')}`
+}
+
+const updateDonutChart = (chart, value, total) => {
+  chart.data.datasets[0].data[0] = value
+  chart.data.datasets[0].data[1] = total - value
+  chart.update()
 }
